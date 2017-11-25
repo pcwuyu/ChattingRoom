@@ -1,31 +1,16 @@
-<!DOCTYPE html>
-<html>
+ {% extends "base.html" %} 
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>匿名聊天室</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
-</head>
-
-<body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">
-                匿名聊天室
-            </h1>
-            <p class="subtitle">
-                简单 高效 快速 信息分享
-            </p>
-            <form class="form" method="POST" action="{% url 'openchat:login' %}">
-                {% csrf_token %}
-                <label class="label">输入聊天昵称：</label>
-                <input class="input" type=text name="name" placeholder="name">
-                <button type="submit" class="button">点击进入！</button>
-            </form>
-        </div>
-    </section>
-</body>
-
-</html>
+{% block main %}
+<h1 class="title">
+    匿名聊天室
+</h1>
+<p class="subtitle">
+    简单 高效 快速 信息分享
+</p>
+<form class="form" method="POST" action="{% url 'openchat:login' %}">
+    {% csrf_token %}
+    <label class="label">输入聊天昵称：</label>
+    <input class="input" type=text name="name" placeholder="name">
+    <button type="submit" class="button">点击进入！</button>
+</form>
+{% endblock %}
